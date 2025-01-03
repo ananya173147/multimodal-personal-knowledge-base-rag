@@ -1,0 +1,7 @@
+Documents/
+backend/parsed_assets
+backend/__pycache__/
+*$py.class
+backend/cache.json
+.env
+*.py[cod]
