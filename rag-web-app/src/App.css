@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, #4e54c8, #8f94fb);
+  color: #fff;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  background: #2c2f33;
+  width: 900px;
+  height: 650px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.chat-box {
+  background: #23272a;
+  padding: 15px;
+  border-radius: 10px;
+  height: 450px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-message {
+  margin: 5px 0;
+  padding: 10px;
+  border-radius: 10px;
+  max-width: 80%;
+}
+
+.chat-message.user {
+  background: #7289da;
+  color: #fff;
+  align-self: flex-end;
+}
+
+.chat-message.bot {
+  background: #99aab5;
+  color: #2c2f33;
+  align-self: flex-start;
+}
+
+.query-form, .file-upload-form {
+  display: flex;
+  margin-top: 15px;
+}
+
+.query-form input {
+  flex-grow: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px 0 0 10px;
+  outline: none;
+}
+
+.query-form button {
+  background: #7289da;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 0 10px 10px 0;
+  cursor: pointer;
+}
+
+.file-upload-form {
+  margin-top: 7px;
+}
+
+.file-upload-form input {
+  color: #fff;
+  
+}
+
+.file-upload-form button {
+  background: #7289da;
+  color: white;
+  border: none;
+  padding: 9px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-left:-60px;
+}
+
+.query-form button:disabled, .file-upload-form button:disabled {
+  background: #99aab5;
+  cursor: not-allowed;
+  padding: 9px;
+}
