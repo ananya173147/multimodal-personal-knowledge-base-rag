@@ -210,35 +210,3 @@ class AgenticChunker:
                     self.upsert_chunk(chunk_id, current_propositions + [proposition])
         finally:
             rate_limiter.release()
-
-    # def find_chunk_and_push_proposition(self, proposition):
-    #     """
-    #     Finds the most relevant chunk for a proposition or creates a new one if none match.
-    #     """
-    #     logger.info(f"Finding chunk for proposition: {proposition}")
-    #     allocation_llm = self.llm.with_structured_output(ChunkID)
-    #     allocation_prompt = self.create_prompt_template([
-    #         ("system", "Using the chunk IDs and summaries, determine the best chunk for the proposition. "
-    #                   "If no chunk matches, generate a new chunk ID. Return only the chunk ID."),
-    #         ("user", "proposition:{proposition}\nchunks_summaries:{chunks_summaries}")
-    #     ])
-    #     allocation_chain = allocation_prompt | allocation_llm
-
-    #     chunks_summaries = {
-    #         chunk_id: chunk["summary"] for chunk_id, chunk in self.chunks.items()
-    #     }
-
-    #     best_chunk_id = self.retry_with_delay(
-    #         allocation_chain.invoke, {
-    #             "proposition": proposition,
-    #             "chunks_summaries": chunks_summaries
-    #         }
-    #     ).chunk_id
-
-    #     if best_chunk_id not in self.chunks:
-    #         logger.info(f"Creating new chunk for proposition: {proposition}")
-    #         self.upsert_chunk(best_chunk_id, [proposition])
-    #     else:
-    #         logger.info(f"Adding proposition to existing chunk ID: {best_chunk_id}")
-    #         current_propositions = self.chunks[best_chunk_id]["propositions"]
-    #         self.upsert_chunk(best_chunk_id, current_propositions + [proposition])

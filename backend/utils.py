@@ -1,9 +1,15 @@
 import pandas as pd
 import os, json, hashlib
+from glob import glob
 from langchain_core.documents import Document
 from pathlib import Path
 
 CACHE_FILE = "./cache.json"
+
+def list_supported_files(inputPath, supported_extensions=[".pdf", ".png", ".jpg", ".csv", ".xlsx"]):
+    file_list = glob(f"{inputPath}/**", recursive=True)
+    return [f for f in file_list if Path(f).suffix in supported_extensions]
+
 
 def load_cache():
     if os.path.exists(CACHE_FILE):
