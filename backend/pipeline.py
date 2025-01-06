@@ -86,7 +86,9 @@ def pipeline(inputPath="/multimodal-personal-knowledge-base/Documents/",
     doc_indexing = indexing()
     retriever = doc_indexing.index_documents(chunks + image_documents)
 
-    qa = QA(retriever)
-    qa.query()
+    # qa = QA(retriever)
+    # qa.query()
+    
+    return retriever
 
 

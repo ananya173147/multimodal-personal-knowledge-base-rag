@@ -1,7 +1,11 @@
 Documents/
 backend/parsed_assets
+backend/uploaded_files
 backend/__pycache__/
 *$py.class
 backend/cache.json
 .env
 *.py[cod]
+rag-web-app/node_modules
+rag-web-app/build
+backend/node_modules
