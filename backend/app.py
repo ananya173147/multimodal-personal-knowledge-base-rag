@@ -61,7 +61,11 @@ async def query_document(query: str):
         return {"query": query, "answer": answer}
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Internal error: {str(e)}")
-
+    
+@app.get("/files")
+async def list_files():
+    files = os.listdir("./uploaded_files")
+    return {"files": files}
 
 # input_path = "C:/Users/anany/Desktop/Work/Python/Multimodal PKB/multimodal-personal-knowledge-base/Documents"
 # parser = "pymupdf4llm"
