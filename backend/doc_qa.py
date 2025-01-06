@@ -52,17 +52,18 @@ class QA:
                                                  self.question_answering_prompt
                                                  )
 
-  def query(self):
-    while True:
-      query = input("You: ")
-      if query.lower() == "exit":
-          break
-      # docs = self.retriever.invoke(query)
-      docs = self.retriever.get_relevant_documents(query)
+  def query(self, query_text:str) -> str:
+    # while True:
+    #   query = input("You: ")
+    #   if query.lower() == "exit":
+    #       break
+    #   # docs = self.retriever.invoke(query)
+    docs = self.retriever.get_relevant_documents(query_text)
   
-      response = self.qa_chain.invoke(
+    response = self.qa_chain.invoke(
             {"context": docs,
-             "messages": [HumanMessage(content=query)]
+             "messages": [HumanMessage(content=query_text)]
              }
             )
-      print(f"AI: {response}")
+    # print(f"AI: {response}")
+    return response
