@@ -9,3 +9,4 @@ backend/cache.json
 rag-web-app/node_modules
 rag-web-app/build
 backend/node_modules
+var.env

@@ -9,19 +9,77 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.app-container {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.files-sidebar {
+  width: 300px;
+  background: #2c2f33;
+  padding: 20px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.files-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin: 15px 0;
+  background: #23272a;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.file-item {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+  margin: 4px 0;
+  background: #2c2f33;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.file-item:hover {
+  background: #7289da;
+}
+
+.file-icon {
+  margin-right: 8px;
+}
+
+.file-name {
+  word-break: break-all;
+  color: #fff;
+}
+
+.no-files {
+  color: #99aab5;
+  text-align: center;
+  padding: 20px;
 }
 
 .chat-container {
   background: #2c2f33;
-  width: 900px;
+  flex-grow: 1;
   height: 650px;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #fff;
@@ -56,7 +114,7 @@ h1 {
   align-self: flex-start;
 }
 
-.query-form, .file-upload-form {
+.query-form {
   display: flex;
   margin-top: 15px;
 }
@@ -67,6 +125,8 @@ h1 {
   border: none;
   border-radius: 10px 0 0 10px;
   outline: none;
+  background: #23272a;
+  color: #fff;
 }
 
 .query-form button {
@@ -79,26 +139,52 @@ h1 {
 }
 
 .file-upload-form {
-  margin-top: 7px;
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .file-upload-form input {
   color: #fff;
-  
+  background: #23272a;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  width: 100%;
 }
 
 .file-upload-form button {
   background: #7289da;
   color: white;
   border: none;
-  padding: 9px;
+  padding: 10px;
   border-radius: 10px;
   cursor: pointer;
-  margin-left:-60px;
+  width: 100%;
 }
 
-.query-form button:disabled, .file-upload-form button:disabled {
+.query-form button:disabled,
+.file-upload-form button:disabled {
   background: #99aab5;
   cursor: not-allowed;
-  padding: 9px;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #23272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #7289da;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #677bc4;
 }
