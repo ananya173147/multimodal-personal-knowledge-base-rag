@@ -1,15 +1,35 @@
 # Multimodal Personal Knowledge Base RAG
 
-A production-ready Retrieval-Augmented Generation system that processes multimodal documents (PDFs, images, spreadsheets) and enables intelligent question-answering through semantic search and large language models.
+A Retrieval-Augmented Generation system that processes multimodal documents (PDFs, images, spreadsheets) and enables intelligent question-answering through semantic search and large language models. This system implements an end-to-end multimodal RAG pipeline with advanced document parsing, intelligent chunking strategies, and a web-based chat interface. It automatically extracts and processes text, images, and tables from diverse document formats, creating a queryable knowledge base with context-aware retrieval capabilities.
 
-## Overview
+![WhatsApp Image 2025-12-11 at 12 48 34 AM](https://github.com/user-attachments/assets/ad90310f-317c-46e7-a29a-ad17e554ce99)
 
-This system implements an end-to-end multimodal RAG pipeline with advanced document parsing, intelligent chunking strategies, and a web-based chat interface. It automatically extracts and processes text, images, and tables from diverse document formats, creating a queryable knowledge base with context-aware retrieval capabilities.
+
+## Project Structure
+```
+multimodal-personal-knowledge-base-rag/
+├── backend/
+│   ├── app.py                    # FastAPI application and endpoints
+│   ├── pipeline.py               # Main document processing pipeline
+│   ├── docparser.py              # Document parsing with LlamaParse/PyMuPDF
+│   ├── chunkers.py               # Semantic and agentic chunking strategies
+│   ├── imageprocessing.py        # Image encoding and summarization
+│   ├── doc_qa.py                 # Vector indexing and QA chain
+│   ├── utils.py                  # File utilities and caching
+│   └── backend_requirements.txt  # Python dependencies
+├── rag-web-app/
+│   ├── src/
+│   │   ├── App.js                # Main React component
+│   │   ├── App.css               # Styling
+│   │   └── index.js              # React entry point
+│   ├── public/                   # Static assets
+│   └── package.json              # Node dependencies
+├── requirements.txt              # Root Python dependencies
+└── README.md
+```
 
 ## System Architecture
-
 ### Backend Components
-
 **Document Processing Pipeline**
 - Multi-format document parsing with LlamaParse and PyMuPDF4LLM support
 - Automated extraction of embedded images, tables, and text content
@@ -196,30 +216,6 @@ Lists all uploaded files.
 - `top_k`: Number of documents to retrieve (default: 3)
 - `similarity_threshold`: Minimum similarity score for retrieval
 
-## Project Structure
-
-```
-multimodal-personal-knowledge-base-rag/
-├── backend/
-│   ├── app.py                    # FastAPI application and endpoints
-│   ├── pipeline.py               # Main document processing pipeline
-│   ├── docparser.py              # Document parsing with LlamaParse/PyMuPDF
-│   ├── chunkers.py               # Semantic and agentic chunking strategies
-│   ├── imageprocessing.py        # Image encoding and summarization
-│   ├── doc_qa.py                 # Vector indexing and QA chain
-│   ├── utils.py                  # File utilities and caching
-│   └── backend_requirements.txt  # Python dependencies
-├── rag-web-app/
-│   ├── src/
-│   │   ├── App.js                # Main React component
-│   │   ├── App.css               # Styling
-│   │   └── index.js              # React entry point
-│   ├── public/                   # Static assets
-│   └── package.json              # Node dependencies
-├── requirements.txt              # Root Python dependencies
-└── README.md
-```
-
 ## Key Features
 
 ### Advanced Document Processing
@@ -247,21 +243,10 @@ multimodal-personal-knowledge-base-rag/
 - CORS-enabled API for distributed deployment
 
 ## Performance Considerations
-
 - File hashing prevents redundant processing of unchanged documents
 - Concurrent processing pipelines for text and multimodal content
 - Rate limiting prevents API quota exhaustion
 - Persistent vector store enables fast startup times
 
-## License
+## MIT License
 
-MIT License
-
-## Contributors
-
-- Ananya Mantravadi ([@ananya173147](https://github.com/ananya173147))
-- Aahlaad Mantravadi ([@aahlaadmantravadi](https://github.com/aahlaadmantravadi))
-
-## Acknowledgments
-
-Built with LangChain, Google Generative AI, LlamaParse, and ChromaDB.
